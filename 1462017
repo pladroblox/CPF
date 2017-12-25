@@ -1,0 +1,203 @@
+
+library(DBI)
+library("DBI", lib.loc="~/R/win-library/3.3")
+#The DBI package defines a common interface between the R and DBMS. 
+#The interface defines a small set of classes and methods similar to JDBC of JAVA
+library("RMySQL", lib.loc="~/R/win-library/3.3")
+library(RMySQL)
+Sys.getenv("root")
+args <- commandArgs(trailingOnly=TRUE)
+
+query <- args[1]
+
+
+if( query == 1){ 
+    con <- dbConnect(MySQL(), user="root",dbname="form")
+        
+        
+        sql_command <- "SELECT branch,year,percentage FROM dy"
+
+        rs<-dbSendQuery(con,sql_command)
+
+        data<- fetch(rs,n=-1)
+
+        data
+
+        setwd("C:/xampp/htdocs/rstudio")
+        
+        library("ggplot2", lib.loc="~/R/win-library/3.3")
+        
+       myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+          geom_bar(stat="identity", position = "dodge") + 
+          scale_fill_brewer(palette = "Set1")
+       
+       ggsave(filename="myPlot.png", plot=myPlot)
+       
+        all_cons <- dbListConnections(MySQL())
+        dbClearResult(rs)
+        for( con in all_cons)
+          dbDisconnect(con)
+        
+} else if ( query == 2) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM sies"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+} else if ( query == 3) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM pcoe"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+} else if ( query == 4) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM dmcoe"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+} else if ( query == 5) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM tcoe"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+} else if ( query == 6) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM igcoe"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+} else if ( query == 7) { 
+  con <- dbConnect(MySQL(), user="root",dbname="form")
+  
+  
+  sql_command <- "SELECT branch,year,percentage FROM ltt"
+  
+  rs<-dbSendQuery(con,sql_command)
+  
+  data<- fetch(rs,n=-1)
+  
+  data
+  
+  setwd("C:/xampp/htdocs/rstudio")
+  
+  library("ggplot2", lib.loc="~/R/win-library/3.3")
+  
+  myPlot <- ggplot(data, aes(factor(year), percentage, fill = branch)) + 
+    geom_bar(stat="identity", position = "dodge") + 
+    scale_fill_brewer(palette = "Set1")
+  
+  ggsave(filename="myPlot.png", plot=myPlot)
+  
+  all_cons <- dbListConnections(MySQL())
+  dbClearResult(rs)
+  for(con in all_cons)
+    dbDisconnect(con)
+  
+}

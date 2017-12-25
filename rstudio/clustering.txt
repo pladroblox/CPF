@@ -1,0 +1,43 @@
+## Ex. 1
+setwd("E:/RInternship")
+library(RWeka)
+library(cluster)
+library(HSAUR)
+library(fpc)
+data(pottery)
+plot(pottery)
+View(pottery)
+?pottery
+set.seed(123)
+km2 <- kmeans(pottery,2)
+class(km2)
+plotcluster(pottery,km2$cluster)
+summary(km2)
+set.seed(123)
+km8 <- kmeans(pottery,8)
+km3
+set.seed(123)
+km4 <- kmeans(pottery,4)
+km4
+#accessing cluster parameters 
+km4$cluster
+km4$centers
+#total sum of square 
+km4$totss
+km4$withinss
+km4$tot.withinss
+sum(km4$withinss)
+km4$betweenss
+km4$betweenss / km4$totss
+km4$size
+km4$iter
+
+plotcluster(pottery, km8$cluster)
+
+### Elbow method to find best K
+k.ss <- km4$totss
+k <- 1:8
+for (i in k[2:8]) k.ss[i] <- (kmeans(pottery, centers=i)$tot.withinss)
+k.ss
+plot(k, k.ss, type="b", xlab="Number of Clusters", ylab=" sum of squares")
+
